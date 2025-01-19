@@ -1,0 +1,62 @@
+#include <iostream>
+#include <fstream>
+#include <windows.h>
+#include <conio.h>
+using namespace std;
+class Medicine{
+public: 
+       Medicine();
+       Medicine(int n, struct Medicine* p);
+       int getcalc(int n, struct Medicine* p);
+       void setdb(int n, struct Medicine* p);
+private:
+};
+int main(){
+       Medicine p1;
+       Medicine p2(3,2);
+       p1.getcalc(5, struct Medicine* p);
+       p1.setdb(7, struct Medicine* p);   
+}
+
+Medicine::Medicine(){
+        struct Medicine
+        {
+          int no; //номер
+          string name; //название
+          string gldoc; //Глав.врач
+          string coldoc; //кол-во врачей
+          int decr; //кол-во в отпуске
+          int money; //отпускные
+        };
+}
+Medicine::Medicine(int n, struct Medicine* p){
+         cout << "no: ";
+         cin >> p[i].no;
+         cout << "name: "; 
+         cin >> p[i].name;
+         cout << "gldoc: ";
+         cin >> p[i].gldoc;
+         cout << "coldoc: ";
+         cin >> p[i].coldoc;
+         cout << "decr: ";
+         cin >> p[i].decr;
+         cout << "money: ";
+         cin >> p[i].money;
+        
+}
+int Medicine::getcalc(int n, struct Medicine* p){
+         int k = 0;
+         for (int i = 0; i < n; i++)
+           {
+            k += p[i].decr;
+           }
+         return k;
+}
+void Medicine::setdb(int n, struct Medicine* p){
+    ofstream fout;
+    fout.open("f2.txt");
+    for (int i = 0; i < n; i++) {
+        fout << p[i].no << " " << p[i].name << " " << p[i].gldoc << " " << p[i].coldoc <<" "<< p[i].decr << " " << p[i].money << endl;
+    }
+    fout.close();
+}
