@@ -1,50 +1,45 @@
-#include <iostream>
-#include <fstream>
-#include <windows.h>
-#include <conio.h>
-using namespace std;
-class Medicine{
+class University{
 public: 
-       Medicine();
-       Medicine(int n, struct Medicine* p);
-       int getcalc(int n, struct Medicine* p);
-       void setdb(int n, struct Medicine* p);
+       University();
+       University(int n, struct University* p);
+       int getcalc(int n, struct University* p);
+       void setdb(int n, struct University* p);
 private:
 };
 int main(){
-       Medicine p1;
-       Medicine p2(3,2);
-       p1.getcalc(5, struct Medicine* p);
-       p1.setdb(7, struct Medicine* p);   
+       University p1;
+       University p2(3,2);
+       p1.getcalc(5, struct University* p);
+       p1.setdb(7, struct University* p);   
 }
 
-Medicine::Medicine(){
-        struct Medicine
+University::University(){
+        struct University
         {
           int no; //номер
           string name; //название
-          string gldoc; //Глав.врач
-          string coldoc; //кол-во врачей
+          string glprepod; //Ректор
+          string colprepod; //кол-во препод
           int decr; //кол-во в отпуске
           int money; //отпускные
         };
 }
-Medicine::Medicine(int n, struct Medicine* p){
+University::University(int n, struct University* p){
          cout << "no: ";
          cin >> p[i].no;
          cout << "name: "; 
          cin >> p[i].name;
-         cout << "gldoc: ";
-         cin >> p[i].gldoc;
-         cout << "coldoc: ";
-         cin >> p[i].coldoc;
+         cout << "glprepod: ";
+         cin >> p[i].glprepod;
+         cout << "colprepod: ";
+         cin >> p[i].colprepod;
          cout << "decr: ";
          cin >> p[i].decr;
          cout << "money: ";
          cin >> p[i].money;
         
 }
-int Medicine::getcalc(int n, struct Medicine* p){
+int University::getcalc(int n, struct University* p){
          int k = 0;
          for (int i = 0; i < n; i++)
            {
@@ -52,11 +47,11 @@ int Medicine::getcalc(int n, struct Medicine* p){
            }
          return k;
 }
-void Medicine::setdb(int n, struct Medicine* p){
+void University::setdb(int n, struct University* p){
     ofstream fout;
     fout.open("f2.txt");
     for (int i = 0; i < n; i++) {
-        fout << p[i].no << " " << p[i].name << " " << p[i].gldoc << " " << p[i].coldoc <<" "<< p[i].decr << " " << p[i].money << endl;
+        fout << p[i].no << " " << p[i].name << " " << p[i].glprepod << " " << p[i].colprepod <<" "<< p[i].decr << " " << p[i].money << endl;
     }
     fout.close();
 }
